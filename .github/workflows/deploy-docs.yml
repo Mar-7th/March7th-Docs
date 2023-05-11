@@ -4,7 +4,7 @@ on:
   push:
     branches:
       # make sure this is the branch you are using
-      - main
+      - master
 
 jobs:
   deploy-gh-pages:
@@ -21,6 +21,7 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           run_install: true
+          version: 6.11.0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
