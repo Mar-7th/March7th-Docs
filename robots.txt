@@ -1,0 +1,5 @@
+
+User-agent:*
+Disallow:
+
+Sitemap: https://march7th.xiaohei.moe/sitemap.xml
