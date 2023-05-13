@@ -1,11 +1,11 @@
 ---
 title: Install steps
+icon: install
 index: false
-icon: discover
 category:
   - Install
 ---
 
-## Catalog
+## Steps
 
 - [Environment configuration](environment.md)

@@ -1,12 +1,12 @@
 ---
-title: 指南
-icon: read
+title: Resource
+icon: pic
 index: false
 category:
-  - 指南
+  - Resource
 ---
 
-## 功能亮点
+## Highlight Features
 
 ### Bar
 

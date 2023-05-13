@@ -1,6 +1,9 @@
 ---
 title: Guide
-icon: creative
+icon: read
+index: false
+category:
+  - Guide
 ---
 
 ## Highlight Features

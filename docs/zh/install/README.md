@@ -1,7 +1,7 @@
 ---
 title: 安装流程
+icon: install
 index: false
-icon: discover
 category:
   - 安装
 ---
