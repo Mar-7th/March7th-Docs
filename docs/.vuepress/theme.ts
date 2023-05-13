@@ -4,18 +4,14 @@ import { enSidebar, zhSidebar } from "./sidebar/index.js";
 
 export default hopeTheme({
   hostname: "https://march7th.xiaohei.moe",
-
   author: {
     name: "Mar-7th",
     url: "https://github.com/Mar-7th",
   },
-
   iconAssets: "iconfont",
-
   logo: "/logo.png",
-
   repo: "Mar-7th/March7th-Docs",
-
+  docsBranch: 'master',
   docsDir: "docs",
 
   locales: {
@@ -25,14 +21,10 @@ export default hopeTheme({
     "/zh/": {
       // navbar
       navbar: zhNavbar,
-
       // sidebar
       sidebar: zhSidebar,
-
       footer: "默认页脚",
-
       displayFooter: true,
-
       // page meta
       metaLocales: {
         editLink: "在 GitHub 上编辑此页",
@@ -45,14 +37,10 @@ export default hopeTheme({
     "/en/": {
       // navbar
       navbar: enNavbar,
-
       // sidebar
       sidebar: enSidebar,
-
       footer: "Default footer",
-
       displayFooter: true,
-
       metaLocales: {
         editLink: "Edit this page on GitHub",
       },
