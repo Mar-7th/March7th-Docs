@@ -6,14 +6,12 @@ category:
   - Resource
 ---
 
-## Highlight Features
+## Content
 
-### Bar
+Repo: [Mar-7th/StarRailRes](https://github.com/Mar-7th/StarRailRes)
 
-- [baz](bar/baz.md)
-- ...
-
-### Foo
-
-- [ray](foo/ray.md)
-- ...
+- [File Structure](structure.md)
+- [Character Index](characters.md)
+- [Light Cone Index](light_cones.md)
+- [Relic Index](relics.md)
+- [MihomoAPI Parse](mihomo_api.md)

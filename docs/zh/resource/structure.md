@@ -51,10 +51,12 @@ VI    Tiếng Việt
 ```text
 paths.json                      # 命途
 elements.json                   # 元素
+properties.json                 # 属性
 characters.json                 # 角色基本信息
 character_ranks.json            # 角色星魂
 character_skills.json           # 角色技能
 character_skill_trees.json      # 角色行迹
+character_promotions.json       # 角色晋阶与等级
 light_cones.json                # 光锥基本信息
 light_cone_ranks.json           # 光锥叠影
 light_cone_promotions.json      # 光锥晋阶与等级
@@ -62,6 +64,7 @@ relics.json                     # 遗器基本信息
 relic_sets.json                 # 遗器套装信息
 relic_main_affixs.json          # 遗器主词条组
 relic_sub_affixs.json           # 遗器副词条组
+items.json                      # 材料
 ```
 
 各索引文件的具体结构请在对应页面查看。

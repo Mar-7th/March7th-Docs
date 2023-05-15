@@ -6,7 +6,7 @@ category:
   - 资源
 ---
 
-## 资源目录结构
+## 目录
 
 资源仓库： [Mar-7th/StarRailRes](https://github.com/Mar-7th/StarRailRes)
 
@@ -14,4 +14,4 @@ category:
 - [角色索引](characters.md)
 - [光锥索引](light_cones.md)
 - [遗器索引](relics.md)
-- [MihomoAPI解析](mihomo_api.md)
+- [MihomoAPI 解析](mihomo_api.md)
