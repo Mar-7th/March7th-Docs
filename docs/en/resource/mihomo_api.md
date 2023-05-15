@@ -1,9 +1,9 @@
 ---
-title: MihomoAPI解析
+title: MihomoAPI Parse
 icon: page
 order: 5
 category:
-  - 资源
+  - Resource
 ---
 
 This page describes the reference implementation of the Mihomo API for parsing by index.
