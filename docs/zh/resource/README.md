@@ -14,4 +14,4 @@ category:
 - [角色索引](characters.md)
 - [光锥索引](light_cones.md)
 - [遗器索引](relics.md)
-- [MihomoAPI 解析](mihomo_api.md)
+- [MihomoAPI](mihomo_api.md)

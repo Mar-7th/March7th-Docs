@@ -1,120 +1,183 @@
 ---
-title: MihomoAPI解析
+title: MiHoMo API
 icon: page
 order: 5
 category:
   - 资源
 ---
 
-本页面介绍通过索引解析 MihomoAPI 的参考实现。
+本页面介绍 MiHoMo API 的使用方式。
 
 <!-- more -->
 
-## MihomoAPI 字段说明
+## MiHoMo API 调用说明
 
-MihomoAPI 返回值结构如下：
+### 请求方式
+
+MiHoMo API 使用 HTTP GET 方式请求，相关参考：[HTTP GET](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET)。
+
+如果在网站或机器人项目中使用了 MiHoMo API，推荐在 User-Agent 中添加应用名称信息，以方便 API 服务调试使用。
+
+当前 API 主站 Host: https://api.mihomo.me
+
+图片资源仓库：https://github.com/Mar-7th/StarRailRes
+
+### MiHoMo OriginAPI
+
+MiHoMo OriginAPI 返回原始玩家信息。
+
+终结点：`/sr_info/{uid}`
+
+**路径参数**
+
+| 字段名 | 数据类型 | 说明         |
+| ------ | -------- | ------------ |
+| uid    | string   | 查询玩家 UID |
+
+**响应数据**
+
+见 [MiHoMo OriginAPI 返回字段](#mihomo-originapi-返回字段)
+
+### MiHoMo ParsedAPI
+
+MiHoMo OriginAPI 返回原始玩家信息。
+
+终结点：`/sr_info_parsed/{uid}`
+
+**路径参数**
+
+| 字段名 | 数据类型 | 说明         |
+| ------ | -------- | ------------ |
+| uid    | string   | 查询玩家 UID |
+
+**请求参数**
+
+| 字段名  | 数据类型 | 默认值 | 说明     |
+| ------- | -------- | ------ | -------- |
+| lang    | string   | cn     | 语言     |
+| version | string   | v2     | API 版本 |
+
+支持语言列表：
+
+| 代码 | 语言             |
+| ---- | ---------------- |
+| cn   | 简体中文         |
+| cht  | 繁體中文         |
+| de   | Deutsch          |
+| en   | English          |
+| es   | Español          |
+| fr   | Français         |
+| id   | Bahasa Indonesia |
+| jp   | 日本語           |
+| kr   | 한국어           |
+| pt   | Português        |
+| ru   | Русский          |
+| th   | ภาษาไทย          |
+| vi   | Tiếng Việt       |
+
+**响应数据**
+
+见 [MiHoMo ParsedAPI 返回字段](#mihomo-parsedapi-返回字段)
+
+## MiHoMo API 字段说明
+
+### MiHoMo OriginAPI 返回字段
+
+MiHoMo OriginAPI 返回值结构如下：
 
 ```json
 {
-  // 角色详细信息字段
+  // 玩家详细信息字段
   // 当前返回结果仅包含此字段
-  "PlayerDetailInfo": {
-    // 游戏uid
-    "UID": 114514191,
+  "detailInfo": {
+    // 游戏 uid
+    "uid": 100114514,
     // 昵称
-    "NickName": "xxx",
+    "nickname": "田所浩二",
     // 账号等级
-    "Level": 41,
+    "level": 34,
     // 均衡等级 / 世界等级
-    "WorldLevel": 3,
+    "worldLevel": 2,
     // 当前好友数量
-    "CurFriendCount": 11,
+    "friendCount": 24,
     // 使用头像id
-    "HeadIconID": 201013,
-    // 设置签名
-    // 若未设置签名 返回结果无此字段
-    "Signature": "",
-    // 设置生日
-    // 若未设置生日 返回结果无此字段
-    "Birthday": 330,
+    "headIcon": 201209,
+    // 签名 若未设置签名 返回结果无此字段
+    "signature": "你是一个一个一个",
+    // 平台信息
+    "platform": "ANDROID",
     // 是否公开显示角色信息
     "IsDisplayAvatarList": true,
-    // 账号数据信息
-    "PlayerSpaceInfo": {
+    // 数据信息
+    "recordInfo": {
       // 忘却之庭进度
       // 若未开启此项为空
-      "ChallengeData": {
-        // 可选
-        "MazeGroupID": 0,
-        // 可选
-        "MazeGroupIndex": 0,
-        // 进度
-        "PreMazeGroupIndex": 12
+      "challengeInfo": {
+        "scheduleMaxLevel": 15
       },
       // 通过模拟宇宙数量
-      "PassAreaProgress": 6,
+      "maxRogueChallengeScore": 3,
       // 获得光锥数量
-      "LightConeCount": 45,
+      "equipmentCount": 22,
       // 获得角色数量
-      "AvatarCount": 17,
+      "avatarCount": 14,
       // 获得成就数量
-      "AchievementCount": 173
+      "achievementCount": 119
     },
     // 支援角色信息
-    "AssistAvatar": {
+    "assistAvatarDetail": {
       // 角色id
-      "AvatarID": 1003,
-      // 角色星魂数
-      // 若未解锁星魂则无此字段
-      "Rank": 1,
+      "avatarId": 1209,
+      // 角色星魂数 若未解锁星魂则无此字段
+      "rank": 1,
       // 角色等级
-      "Level": 50,
+      "level": 50,
       // 角色晋阶等级
-      "Promotion": 3,
-      // 光锥信息
-      "EquipmentID": {
+      "promotion": 3,
+      // 光锥信息 若无光锥此项为 {}
+      "equipment": {
         // 光锥id
-        "ID": 21020,
+        "tid": 21020,
         // 光锥叠影数
-        "Rank": 2,
+        "rank": 2,
         // 光锥等级
-        "Level": 50,
+        "level": 50,
         // 光锥晋阶等级
-        "Promotion": 3
+        "promotion": 3
       },
-      // 行迹信息
-      "BehaviorList": [
+      // 行迹 / 技能树信息
+      "skillTreeList": [
         {
           // 行迹id
-          "BehaviorID": 1003001,
+          "pointId": 1003001,
           // 行迹等级
-          "Level": 2
+          "level": 2
         }
         // ...
         // 只包括已经解锁的行迹，目前最多 18 个
       ],
       // 遗器信息
-      "RelicList": [
+      "relicList": [
         {
           // 遗器id
-          "ID": 51071,
-          // 遗器主词条id 需要在遗器主词条组的索引
-          "MainAffixID": 1,
+          "tid": 51071,
           // 遗器类型 1-HEAD 2-HAND 3-BODY 4-FOOT 5-NECK 6-OBJECT
-          "Type": 1,
+          "type": 1,
           // 遗器等级
-          "Level": 9,
+          "level": 9,
           // 当前经验
-          "EXP": 200,
+          "exp": 200,
+          // 遗器主词条id 需要在遗器主词条组的索引
+          "mainAffixId": 1,
           // 副词条
-          "RelicSubAffix": [
+          "subAffixList": [
             {
               // 副词条id
-              "SubAffixID": 2,
+              "affixId": 2,
               // 副词条基础值数量
-              "Cnt": 1,
-              // 副词条步进值数量
-              "Step": 1
+              "cnt": 1,
+              // 副词条步进值数量 可选
+              "step": 1
             }
             // ...
             // 其他副词条
@@ -126,521 +189,433 @@ MihomoAPI 返回值结构如下：
     },
     // 展示角色（星海同行）信息
     // 若未设置则不返回此字段
-    "DisplayAvatarList": [
+    "avatarDetailList": [
       // ...
       // 结构同支援角色信息 一共最多 3 个
+      // 多了一个pos 字段表示显示位置，1 和 2 对应中间和右侧
     ]
   }
 }
 ```
 
-## MihomoAPI 字段解析
-
-以下是使用 StarRailRes 索引解析 MihomoAPI 的参考代码：
+参考数据结构：
 
 ```python
-import json
-import math
-from pathlib import Path
+class SpaceChallengeData(BaseModel):
+    scheduleMaxLevel: int = 0
+    scheduleGroupId: int = 0
+    noneScheduleMaxLevel: int = 0
 
-response_file = Path(Path(__file__).parent / "response.json")
-index_dir = Path(Path(__file__).parent / "index")
-out_file = Path(__file__).parent / "out.json"
+class SpaceData(BaseModel):
+    challengeInfo: Optional[SpaceChallengeData] = None
+    maxRogueChallengeScore: int = 0
+    equipmentCount: int = 0
+    avatarCount: int = 0
+    achievementCount: int = 0
 
-# index files
-index_files = {
-    "characters": index_dir / "characters.json",
-    "character_ranks": index_dir / "character_ranks.json",
-    "character_skills": index_dir / "character_skills.json",
-    "character_skill_trees": index_dir / "character_skill_trees.json",
-    "character_promotions": index_dir / "character_promotions.json",
-    "light_cones": index_dir / "light_cones.json",
-    "light_cone_ranks": index_dir / "light_cone_ranks.json",
-    "light_cone_promotions": index_dir / "light_cone_promotions.json",
-    "relics": index_dir / "relics.json",
-    "relic_sets": index_dir / "relic_sets.json",
-    "relic_main_affixs": index_dir / "relic_main_affixs.json",
-    "relic_sub_affixs": index_dir / "relic_sub_affixs.json",
-    "paths": index_dir / "paths.json",
-    "elements": index_dir / "elements.json",
-    "properties": index_dir / "properties.json",
-    "avatars": index_dir / "avatars.json",
-}
+class EquipmentData(BaseModel):
+    tid: Optional[int] = None
+    rank: int = 1
+    level: int = 1
+    promotion: int = 0
 
-index = {}
+class SkillTreeData(BaseModel):
+    pointId: int
+    level: int = 0
 
-def load_json_file(path: Path):
-    with open(path, "r", encoding="utf-8") as f:
-        json_dict = json.loads(f.read())
-    return json_dict
+class SubAffixData(BaseModel):
+    affixId: int
+    cnt: int = 0
+    step: int = 0
 
-def get_level_up_skills_from_character_rank(info):
-    level_up_skills = []
-    id = str(info["AvatarID"])
-    rank = info["Rank"] if "Rank" in info else 0
-    rank_list = index["characters"][id]["ranks"][:rank]
-    for rank_item in rank_list:
-        level_up_skills += index["character_ranks"][rank_item]["level_up_skills"]
-    return level_up_skills
+class RelicData(BaseModel):
+    tid: int
+    mainAffixId: int
+    type: int
+    level: int = 0
+    exp: int = 0
+    subAffixList: List[SubAffixData] = []
 
-def get_skill_info_by_level_up_skills(info, level_up_skills):
-    skill_info = []
-    id = str(info["AvatarID"])
-    skill_list = index["characters"][id]["skills"]
-    for skill in skill_list:
-        if not str(skill).endswith("6"):
-            skill_info.append({ "name": index["character_skills"][skill]["name"], "level": 0, "icon": index["character_skills"][skill]["icon"] })
-    for skill in level_up_skills:
-        for i in skill_info:
-            if i["name"] == index["character_skills"][skill["id"]]["name"]:
-                skill_info[skill_info.index(i)]["level"] = i["level"] + int(skill["num"])
-    return skill_info
+class CharacterData(BaseModel):
+    avatarId: int
+    rank: int = 0
+    level: int = 1
+    promotion: int = 0
+    equipment: Optional[EquipmentData] = None
+    skillTreeList: List[SkillTreeData] = []
+    relicList: List[RelicData] = []
 
-def get_level_up_skills_from_character_skill_tree(info):
-    level_up_skills = []
-    skill_tree_list = info["BehaviorList"]
-    for item in skill_tree_list:
-        id = str(item["BehaviorID"])
-        level = item["Level"] if "Level" in item else 0
-        skill_list = index["character_skill_trees"][id]["level_up_skills"]
-        for skill in skill_list:
-            skill["num"] = level
-            level_up_skills.append(skill)
-    return level_up_skills
+class PlayerData(BaseModel):
+    uid: int
+    nickname: str
+    level: int = 0
+    worldLevel: int = 0
+    friendCount: int = 0
+    headIcon: int = 200001
+    signature: str = ""
+    isDisplayAvatar: bool = False
+    recordInfo: Optional[SpaceData] = None
+    assistAvatarDetail: Optional[CharacterData] = None
+    avatarDetailList: List[CharacterData] = []
 
-def get_properties_from_character_skill_tree(info):
-    properties = []
-    skill_tree_list = info["BehaviorList"]
-    for item in skill_tree_list:
-        id = str(item["BehaviorID"])
-        level = item["Level"] if "Level" in item else 1
-        skill_properties = index["character_skill_trees"][id]["levels"][level - 1]["properties"]
-        for property in skill_properties:
-            properties.append(property)
-    return properties
-
-def get_promotions_from_character(info):
-    promotions = {}
-    id = str(info["AvatarID"])
-    level = info["Level"] if "Level" in info else 1
-    promotion = info["Promotion"] if "Promotion" in info else 0
-    values = index["character_promotions"][id]["values"][promotion]
-    for k, v in values.items():
-        promotions[k] = v["base"] + v["step"] * (level - 1)
-    return promotions
-
-def parse_light_cone(info):
-    light_cone_info = {}
-    if "EquipmentID" in info:
-        info = info["EquipmentID"]
-        if "ID" in info:
-            id = str(info["ID"])
-            light_cone_info["name"] = index["light_cones"][id]["name"]
-            light_cone_info["rarity"] = index["light_cones"][id]["rarity"]
-            light_cone_info["rank"] = info["Rank"] if "Rank" in info else 0
-            light_cone_info["level"] = info["Level"] if "Level" in info else 0
-            light_cone_info["icon"] = index["light_cones"][id]["icon"]
-    return light_cone_info
-
-def get_properties_from_light_cone_rank(info):
-    properties = []
-    if "EquipmentID" in info:
-        info = info["EquipmentID"]
-        if "ID" in info:
-            id = str(info["ID"])
-            rank = info["Rank"] if "Rank" in info else 0
-            properties = index["light_cone_ranks"][id]["properties"][rank - 1]
-    return properties
-
-def get_promotions_from_light_cone(info, promotions):
-    if "EquipmentID" in info:
-        info = info["EquipmentID"]
-        if "ID" in info:
-            id = str(info["ID"])
-            level = info["Level"] if "Level" in info else 0
-            promotion = info["Promotion"] if "Promotion" in info else 0
-            values = index["light_cone_promotions"][id]["values"][promotion]
-            for k, v in values.items():
-                promotions[k] += v["base"] + v["step"] * (level - 1)
-    return promotions
-
-def get_relic_info(info):
-    relic_info = {}
-    if "RelicList" in info:
-        infos = info["RelicList"]
-        for info in infos:
-            id = str(info["ID"])
-            type = str(info["Type"])
-            level = info["Level"] if "Level" in info else 0
-            relic_info[type] = {}
-            relic_info[type]["name"] = index["relics"][id]["name"]
-            relic_info[type]["rarity"] = index["relics"][id]["rarity"]
-            relic_info[type]["level"] = info["Level"] if "Level" in info else 0
-            main_affix_group = index["relics"][id]["main_affix_id"]
-            main_affix_id = str(info["MainAffixID"])
-            main_affix = index["relic_main_affixs"][main_affix_group]["affixs"][main_affix_id]
-            main_property = { "type": main_affix["property"], "value": main_affix["base"] + main_affix["step"] * level }
-            sub_affix_group = index["relics"][id]["sub_affix_id"]
-            sub_affixs = info["RelicSubAffix"]
-            sub_property = []
-            for sub_affix in sub_affixs:
-                sub_affix_id = str(sub_affix["SubAffixID"])
-                cnt = sub_affix["Cnt"]
-                step = sub_affix["Step"] if "Step" in sub_affix else 0
-                sub_affix = index["relic_sub_affixs"][sub_affix_group]["affixs"][sub_affix_id]
-                sub_property.append({ "type": sub_affix["property"], "value": sub_affix["base"] * cnt + sub_affix["step"] * step })
-            relic_info[type]["main_property"] = main_property
-            relic_info[type]["sub_property"] = sub_property
-            relic_info[type]["icon"] = index["relics"][id]["icon"]
-    return relic_info
-
-def get_properties_from_relic_set(info):
-    properties = []
-    set_id_map = {}
-    if "RelicList" in info:
-        infos = info["RelicList"]
-        for info in infos:
-            id = str(info["ID"])
-            set_id = index["relics"][id]["set_id"]
-            if set_id not in set_id_map:
-                set_id_map[set_id] = 1
-            else:
-                set_id_map[set_id] += 1
-    for k, v in set_id_map.items():
-        if v >= 2:
-            for i in index["relic_sets"][k]["properties"][0]:
-                properties.append(i)
-        if v == 4:
-            for i in index["relic_sets"][k]["properties"][1]:
-                properties.append(i)
-    return properties
-
-def get_relic_set_info(info):
-    relic_set_info = []
-    set_id_map = {}
-    if "RelicList" in info:
-        infos = info["RelicList"]
-        for info in infos:
-            id = str(info["ID"])
-            set_id = index["relics"][id]["set_id"]
-            if set_id not in set_id_map:
-                set_id_map[set_id] = 1
-            else:
-                set_id_map[set_id] += 1
-    for k, v in set_id_map.items():
-        icon = index["relic_sets"][k]["icon"]
-        if v >= 2:
-            desc = "两件套"
-            relic_set_info.append({ "icon": icon, "desc": desc })
-        if v == 4:
-            desc = "四件套"
-            relic_set_info.append({ "icon": icon, "desc": desc })
-    return relic_set_info
-
-def parse_property(promotions, properties):
-    property_dict = {}
-    property_promotions = {}
-    for property in properties:
-        if property["type"] not in property_dict:
-            property_dict[property["type"]] = property["value"]
-        else:
-            property_dict[property["type"]] += property["value"]
-    for k, value in property_dict.items():
-        field = index["properties"][k]["field"]
-        ratio = index["properties"][k]["ratio"]
-        order = index["properties"][k]["order"]
-        if field:
-            if ratio and field in promotions:
-                value = promotions[field] * value
-            if field not in property_promotions:
-                property_promotions[field] = {}
-                property_promotions[field]["order"] = order
-                property_promotions[field]["value"] = value
-            else:
-                if order < property_promotions[field]["order"]:
-                    property_promotions[field]["order"] = order
-                property_promotions[field]["value"] += value
-    property_promotions = sorted(
-        property_promotions.items(), key=lambda item: item[1]["order"]
-    )
-    property_promotions = {k: v["value"] for k, v in property_promotions}
-    return property_promotions
-
-def get_properties_from_relic_info(info):
-    properties = []
-    for v in info.values():
-        properties.append(v["main_property"])
-        properties += v["sub_property"]
-    return properties
-
-def fix_relic_info(info):
-    def parse_prop(prop):
-        type = prop["type"]
-        value = prop["value"]
-        name = index["properties"][type]["name"]
-        # if "Ratio" in type or "Rate" in type or "Status" in type:
-        if value < 1:
-            value = format(math.floor(value * 1000) / 10.0, ".1f") + "%"
-        else:
-            value = str(math.floor(float(value)))
-        return name, value
-
-    for k, v in info.items():
-        name, value = parse_prop(v["main_property"])
-        info[k]["main_property"] = { "name": name, "value": value }
-        sub_property = []
-        for vv in v["sub_property"]:
-            name, value = parse_prop(vv)
-            sub_property.append({ "name": name, "value": value })
-        info[k]["sub_property"] = sub_property
-    return info
-
-def get_character_rank_icons(info):
-    icons = []
-    id = str(info["AvatarID"])
-    rank = info["Rank"] if "Rank" in info else 0
-    rank_list = index["characters"][id]["ranks"]
-    rank_id = 1
-    for rank_item in rank_list:
-        icons.append({ "icon": index["character_ranks"][rank_item]["icon"], "unlock": True if rank >= rank_id else False })
-        rank_id = rank_id + 1
-    return icons
-
-def parse_display_list(info):
-    info_new = []
-    name_mapping = {}
-    for v in index["properties"].values():
-        if v["field"] and v["field"] not in name_mapping:
-            name_mapping[v["field"]] = v["name"]
-    for k, v in info.items():
-        if k in name_mapping:
-            if k in {"hp", "atk", "def", "spd"}:
-                value = str(math.floor(float(v)))
-            else:
-                value = format(math.floor(v * 1000) / 10.0, ".1f") + "%"
-            info_new.append({ "name": name_mapping[k], "value": value })
-    return info_new
-
-def parse_character(info):
-    character_info = {}
-    id = str(info["AvatarID"])
-    character_info["id"] = id
-    character_info["name"] = index["characters"][id]["name"]
-    character_info["rarity"] = index["characters"][id]["rarity"]
-    character_info["level"] = info["Level"] if "Level" in info else 0
-    character_info["rank"] = info["Rank"] if "Rank" in info else 0
-    character_info["rank_icons"] = get_character_rank_icons(info)
-    character_info["preview"] = index["characters"][id]["preview"]
-    character_info["path"] = index["paths"][index["characters"][id]["path"]]["name"]
-    character_info["path_icon"] = index["paths"][index["characters"][id]["path"]]["icon"]
-    character_info["element"] = index["elements"][index["characters"][id]["element"]]["name"]
-    character_info["element_icon"] = index["elements"][index["characters"][id]["element"]]["icon"]
-    character_info["color"] = index["elements"][index["characters"][id]["element"]]["color"]
-    level_up_skills = []
-    level_up_skills += get_level_up_skills_from_character_rank(info)
-    level_up_skills += get_level_up_skills_from_character_skill_tree(info)
-    skill_info = get_skill_info_by_level_up_skills(info, level_up_skills)
-    character_info["skill"] = skill_info
-    promotions = get_promotions_from_character(info)
-    promotions = get_promotions_from_light_cone(info, promotions)
-    character_info["light_cone"] = parse_light_cone(info)
-    properties = []
-    properties += get_properties_from_character_skill_tree(info)
-    properties += get_properties_from_light_cone_rank(info)
-    relic_info = get_relic_info(info)
-    properties += get_properties_from_relic_info(relic_info)
-    relic_info_new = fix_relic_info(relic_info)
-    character_info["relic"] = relic_info_new
-    character_info["relic_set"] = get_relic_set_info(info)
-    properties += get_properties_from_relic_set(info)
-    properties = parse_property(promotions, properties)
-    character_info["promotion"] = parse_display_list(promotions)
-    character_info["property"] = parse_display_list(properties)
-    return character_info
-
-def parse(response):
-    result = {}
-    result["player"] = {}
-    player_info = response["PlayerDetailInfo"]
-    result["player"]["uid"] = str(player_info["UID"])
-    result["player"]["name"] = player_info["NickName"]
-    result["player"]["level"] = player_info["Level"] if "Level" in player_info else 0
-    head_icon = str(player_info["HeadIconID"]) if "HeadIconID" in player_info else "200001"
-    result["player"]["icon"] = index["avatars"][head_icon]["icon"] if head_icon in index["avatars"] else index["avatars"]["200001"]["icon"]
-    result["player"]["signature"] = player_info["Signature"] if "Signature" in player_info else ""
-    character_list = []
-    if "AssistAvatar" in player_info:
-        character_list.append(player_info["AssistAvatar"])
-    if "DisplayAvatarList" in player_info:
-        for i in player_info["DisplayAvatarList"]:
-            character_list.append(i)
-    result["characters"] = []
-    for i in character_list:
-        result["characters"].append(parse_character(i))
-    return result
-
-for k, v in index_files.items():
-    index[k] = load_json_file(v)
-
-if __name__ == "__main__":
-    response = load_json_file(response_file)
-    res = parse(response)
-    with open(out_file, "w", encoding="utf-8") as f:
-        f.write(json.dumps(res, ensure_ascii=False))
-
+class MihomoApiData(BaseModel):
+    detailInfo: Optional[PlayerData] = None
 ```
 
-返回格式如下：
+### MiHoMo ParsedAPI 返回字段
+
+MiHoMo ParsedAPI 返回值结构如下：
 
 ```json
 {
-  // 玩家信息
   "player": {
-    "uid": "100114514",
-    "name": "NAME",
-    "level": 50,
-    // 头像
-    "icon": "icon/avatar/202003.png",
-    "signature": "签名"
+    "uid": "100xxxxxx",
+    "nickname": "辰",
+    "level": 34,
+    "world_level": 2,
+    "friend_count": 6,
+    "avatar": { "id": "201209", "name": "彦卿", "icon": "icon/avatar/1209.png" },
+    "signature": "",
+    "is_display": true,
+    "space_info": {
+      "challenge_data": { "maze_group_id": 0, "maze_group_index": 6, "pre_maze_group_index": 0 },
+      "pass_area_progress": 3,
+      "light_cone_count": 22,
+      "avatar_count": 14,
+      "achievement_count": 119
+    }
   },
-  // 展示角色信息
   "characters": [
     {
-      "id": "1101",
-      "name": "布洛妮娅",
-      "rarity": 5,
-      "level": 60,
-      // 星魂
-      "rank": 0,
+      "id": "1201",
+      "name": "青雀",
+      "rarity": 4,
+      "rank": 3,
+      "level": 50,
+      "promotion": 3,
+      "icon": "icon/character/1201.png",
+      "preview": "image/character_preview/1201.png",
+      "portrait": "image/character_portrait/1201.png",
+      // 星魂等级按顺序排列
       "rank_icons": [
-        { "icon": "icon/skill/1101_rank1.png", "unlock": false },
-        { "icon": "icon/skill/1101_rank2.png", "unlock": false },
-        { "icon": "icon/skill/1101_skill.png", "unlock": false },
-        { "icon": "icon/skill/1101_rank4.png", "unlock": false },
-        { "icon": "icon/skill/1101_ultimate.png", "unlock": false },
-        { "icon": "icon/skill/1101_rank6.png", "unlock": false }
+        "icon/skill/1201_rank1.png",
+        "icon/skill/1201_rank2.png",
+        "icon/skill/1201_skill.png",
+        "icon/skill/1201_rank4.png",
+        "icon/skill/1201_ultimate.png",
+        "icon/skill/1201_rank6.png"
       ],
-      "preview": "image/character_preview/1101.png",
-      "path": "同谐",
-      "path_icon": "icon/path/Harmony.png",
-      "element": "风",
-      "element_icon": "icon/element/Wind.png",
-      "color": "#00FF9C",
-      // 技能
-      "skill": [
+      "path": { "id": "Mage", "name": "智识", "icon": "icon/path/Erudition.png" },
+      "element": { "id": "Quantum", "name": "量子", "color": "#1C29BA", "icon": "icon/element/Quantum.png" },
+      "skills": [
         {
-          "name": "驭风的子弹",
-          "level": 2,
-          "icon": "icon/skill/1101_basic_atk.png"
-        },
-        {
-          "name": "作战再部署",
-          "level": 5,
-          "icon": "icon/skill/1101_skill.png"
-        },
-        {
-          "name": "贝洛伯格进行曲",
-          "level": 5,
-          "icon": "icon/skill/1101_ultimate.png"
-        },
-        {
-          "name": "先人一步",
-          "level": 4,
-          "icon": "icon/skill/1101_talent.png"
-        },
-        {
-          "name": "在旗帜下",
+          "id": "120101",
+          "name": "门前清",
           "level": 1,
-          "icon": "icon/skill/1101_technique.png"
+          "max_level": 9,
+          "element": { "id": "Quantum", "name": "量子", "color": "#1C29BA", "icon": "icon/element/Quantum.png" },
+          "type": "Normal",
+          "type_text": "普攻",
+          "effect": "SingleAttack",
+          "effect_text": "单攻",
+          "simple_desc": "使用1张牌，对敌方单体造成少量量子属性伤害。",
+          "desc": "使用1张当前花色最少的琼玉牌，对指定敌方单体造成等同于青雀50%攻击力的量子属性伤害。",
+          "icon": "icon/skill/1201_basic_atk.png"
         }
+        // 其他技能信息
       ],
-      // 光锥
+      // 行迹信息
+      "skill_trees": [
+        { "id": "1201001", "level": 1, "icon": "icon/skill/1201_basic_atk.png" },
+        { "id": "1201002", "level": 4, "icon": "icon/skill/1201_skill.png" },
+        { "id": "1201003", "level": 3, "icon": "icon/skill/1201_ultimate.png" },
+        { "id": "1201004", "level": 2, "icon": "icon/skill/1201_talent.png" },
+        { "id": "1201007", "level": 1, "icon": "icon/skill/1201_technique.png" },
+        { "id": "1201201", "level": 1, "icon": "icon/property/IconAttack.png" }
+      ],
       "light_cone": {
-        "name": "过往未来",
-        "rarity": 4,
-        // 光锥叠影
-        "rank": 4,
-        "level": 60,
-        "icon": "icon/light_cone/21025.png"
+        "id": "20020",
+        "name": "睿见",
+        "rarity": 3,
+        "rank": 5,
+        "level": 50,
+        "promotion": 3,
+        "icon": "icon/light_cone/20020.png",
+        "preview": "image/light_cone_preview/20020.png",
+        "portrait": "image/light_cone_portrait/20020.png",
+        "path": { "id": "Mage", "name": "智识", "icon": "icon/path/Erudition.png" },
+        "attributes": [
+          {
+            "field": "hp",
+            "name": "生命值",
+            "icon": "icon/property/IconMaxHP.png",
+            "value": 428.4,
+            "display": "428",
+            "percent": false
+          },
+          {
+            "field": "atk",
+            "name": "攻击力",
+            "icon": "icon/property/IconAttack.png",
+            "value": 214.2,
+            "display": "214",
+            "percent": false
+          },
+          {
+            "field": "def",
+            "name": "防御力",
+            "icon": "icon/property/IconDefence.png",
+            "value": 153.0,
+            "display": "153",
+            "percent": false
+          }
+        ],
+        // 光锥加成信息
+        "properties": []
       },
-      // 遗器
-      "relic": {
-        "1": {
+      "relics": [
+        {
+          "id": "51021",
           "name": "快枪手的野穗毡帽",
+          "set_id": "102",
+          "set_name": "野穗伴行的快枪手",
           "rarity": 4,
-          "level": 12,
-          "main_property": { "name": "生命值", "value": "469" },
-          "sub_property": [
-            { "name": "防御力", "value": "16" },
-            { "name": "防御力", "value": "7.7%" },
-            { "name": "暴击伤害", "value": "9.3%" },
-            { "name": "击破特攻", "value": "4.6%" }
-          ],
-          "icon": "icon/relic/102_0.png"
-        },
-        "2": {
-          "name": "快枪手的粗革手套",
-          "rarity": 4,
-          "level": 12
-          // ...
-        },
-        "3": {
-          // ...
-        },
-        "4": {
-          // ...
-        },
-        "5": {
-          // ...
-        },
-        "6": {
-          // ...
+          "level": 6,
+          "icon": "icon/relic/102_0.png",
+          "main_affix": {
+            "type": "HPDelta",
+            "field": "hp",
+            "name": "生命值",
+            "icon": "icon/property/IconMaxHP.png",
+            "value": 279.9820800104644,
+            "display": "279",
+            "percent": false
+          },
+          "sub_affix": [
+            {
+              "type": "AttackDelta",
+              "field": "atk",
+              "name": "攻击力",
+              "icon": "icon/property/IconAttack.png",
+              "value": 13.548016000073403,
+              "display": "13",
+              "percent": false,
+              "count": 1,
+              "step": 0
+            }
+            // 其他副词条
+          ]
         }
-      },
-      "relic_set": [
+        // 其他遗器
+      ],
+      // 遗器套装
+      "relic_sets": [
         {
+          "id": "102",
           "name": "野穗伴行的快枪手",
           "icon": "icon/relic/102.png",
-          "desc": "两件套"
-        },
-        {
-          "name": "野穗伴行的快枪手",
-          "icon": "icon/relic/102.png",
-          "desc": "四件套"
-        },
-        {
-          "name": "星体差分机",
-          "icon": "icon/relic/305.png",
-          "desc": "两件套"
+          "num": 2,
+          "desc": "攻击力提高12%。",
+          "properties": [
+            {
+              "type": "AttackAddedRatio",
+              "field": "atk",
+              "name": "攻击力",
+              "icon": "icon/property/IconAttack.png",
+              "value": 0.12,
+              "display": "12.0%",
+              "percent": true
+            }
+          ]
         }
+        // 其他套装
       ],
-      // 基础属性
-      "promotion": [
-        { "name": "生命值", "value": "1622" },
-        { "name": "攻击力", "value": "743" },
-        { "name": "防御力", "value": "688" },
-        { "name": "速度", "value": "99" },
-        { "name": "暴击率", "value": "5.0%" },
-        { "name": "暴击伤害", "value": "50.0%" }
+      // 角色基础属性
+      "attributes": [
+        {
+          "field": "hp",
+          "name": "生命值",
+          "icon": "icon/property/IconMaxHP.png",
+          "value": 1075.6799999999998,
+          "display": "1075",
+          "percent": false
+        }
+        // 还有 攻击力 防御力 速度 暴击率 暴击伤害
       ],
-      // 提升属性
-      "property": [
-        { "name": "击破特攻", "value": "13.4%" },
-        { "name": "暴击伤害", "value": "95.4%" },
-        { "name": "效果抵抗", "value": "21.0%" },
-        { "name": "风属性伤害提高", "value": "40.9%" },
-        { "name": "生命值", "value": "684" },
-        { "name": "攻击力", "value": "666" },
-        { "name": "防御力", "value": "252" },
-        { "name": "速度", "value": "15" }
+      // 角色属性属性
+      "additions": [
+        {
+          "field": "atk",
+          "name": "攻击力",
+          "icon": "icon/property/IconAttack.png",
+          "value": 515.0632508002462,
+          "display": "515",
+          "percent": false
+        },
+        {
+          "field": "spd",
+          "name": "速度",
+          "icon": "icon/property/IconSpeed.png",
+          "value": 5.88,
+          "display": "5",
+          "percent": false
+        }
+        // 省略其他属性
+      ],
+      // 详细加成列表（汇总的加成信息）
+      "properties": [
+        {
+          "type": "AttackAddedRatio",
+          "field": "atk",
+          "name": "攻击力",
+          "icon": "icon/property/IconAttack.png",
+          "value": 0.40096000253222797,
+          "display": "40.0%",
+          "percent": true
+        }
+        // 省略
       ]
-    },
-    {
-      "id": "1211",
-      "name": "白露"
-      // ...
     }
-    // ...
   ]
 }
+```
+
+参考数据结构：
+
+```python
+class LevelInfo(BaseModel):
+    id: str
+    level: int = 0
+
+class AvatarInfo(BaseModel):
+    id: str
+    name: str
+    icon: str
+
+class PathInfo(BaseModel):
+    id: str
+    name: str
+    icon: str
+
+class ElementInfo(BaseModel):
+    id: str
+    name: str
+    color: str
+    icon: str
+
+class SkillInfo(BaseModel):
+    id: str
+    name: str
+    level: int
+    max_level: int
+    element: Optional[ElementInfo]
+    type: str
+    type_text: str
+    effect: str
+    effect_text: str
+    simple_desc: str
+    desc: str
+    icon: str
+
+class PropertyInfo(BaseModel):
+    type: str
+    field: str
+    name: str
+    icon: str
+    value: float
+    display: str
+    percent: bool
+
+class AttributeInfo(BaseModel):
+    field: str
+    name: str
+    icon: str
+    value: float
+    display: str
+    percent: bool
+
+class SubAffixInfo(PropertyInfo):
+    count: int
+    step: int
+
+class RelicInfo(BaseModel):
+    id: str
+    name: str
+    set_id: str
+    set_name: str
+    rarity: int
+    level: int
+    icon: str
+    main_affix: Optional[PropertyInfo] = None
+    sub_affix: List[SubAffixInfo] = []
+
+class RelicSetInfo(BaseModel):
+    id: str
+    name: str
+    num: int
+    icon: str
+    desc: str = ""
+    properties: List[PropertyInfo] = []
+
+class LightConeInfo(BaseModel):
+    id: str
+    name: str
+    rarity: int
+    rank: int
+    level: int
+    promotion: int
+    icon: str
+    preview: str
+    portrait: str
+    path: Optional[PathInfo] = None
+    attributes: List[AttributeInfo] = []
+    properties: List[PropertyInfo] = []
+
+class SpaceChallengeInfo(BaseModel):
+    maze_group_id: int = 0
+    maze_group_index: int = 0
+    pre_maze_group_index: int = 0
+
+class SpaceInfo(BaseModel):
+    challenge_data: Optional[SpaceChallengeInfo] = None
+    pass_area_progress: int = 0
+    light_cone_count: int = 0
+    avatar_count: int = 0
+    achievement_count: int = 0
+
+class PlayerInfo(BaseModel):
+    uid: str
+    nickname: str
+    level: int = 0
+    world_level: int = 0
+    friend_count: int = 0
+    avatar: Optional[AvatarInfo] = None
+    signature: str = ""
+    is_display: bool = False
+    space_info: Optional[SpaceInfo] = None
+
+class CharacterInfo(BaseModel):
+    id: str
+    name: str
+    rarity: int
+    rank: int
+    level: int
+    promotion: int
+    icon: str
+    preview: str
+    portrait: str
+    rank_icons: List[str] = []
+    path: Optional[PathInfo] = None
+    element: Optional[ElementInfo] = None
+    skills: List[SkillInfo] = []
+    light_cone: Optional[LightConeInfo] = None
+    relics: List[RelicInfo] = []
+    relic_sets: List[RelicSetInfo] = []
+    attributes: List[AttributeInfo] = []
+    additions: List[AttributeInfo] = []
+    properties: List[PropertyInfo] = []
+
+class FormattedApiInfo(BaseModel):
+    player: PlayerInfo
+    characters: List[CharacterInfo] = []
 ```
