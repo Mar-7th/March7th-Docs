@@ -111,7 +111,7 @@ MiHoMo OriginAPI 返回值结构如下：
     // 数据信息
     "recordInfo": {
       // 忘却之庭进度
-      // 若未开启此项为空
+      // 若未开启此项为 {}
       "challengeInfo": {
         // 回忆进度
         "scheduleMaxLevel": 15,

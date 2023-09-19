@@ -97,8 +97,8 @@ MiHoMo OriginAPI response data:
     "signature": "いいよ、こいよ",
     "platform": "ANDROID",
     "IsDisplayAvatarList": true,
-    // Equals {} when not unlock
     "recordInfo": {
+      // Equals {} when not unlock
       "challengeInfo": {
         "scheduleMaxLevel": 15,
         // Optional
