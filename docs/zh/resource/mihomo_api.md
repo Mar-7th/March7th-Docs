@@ -113,7 +113,12 @@ MiHoMo OriginAPI 返回值结构如下：
       // 忘却之庭进度
       // 若未开启此项为空
       "challengeInfo": {
-        "scheduleMaxLevel": 15
+        // 回忆进度
+        "scheduleMaxLevel": 15,
+        // 混沌回忆进度 可选
+        "scheduleGroupId": 3,
+        // 可选
+        "noneScheduleMaxLevel": 112
       },
       // 通过模拟宇宙数量
       "maxRogueChallengeScore": 3,

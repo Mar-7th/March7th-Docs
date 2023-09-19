@@ -97,9 +97,14 @@ MiHoMo OriginAPI response data:
     "signature": "いいよ、こいよ",
     "platform": "ANDROID",
     "IsDisplayAvatarList": true,
+    // Equals {} when not unlock
     "recordInfo": {
       "challengeInfo": {
-        "scheduleMaxLevel": 15
+        "scheduleMaxLevel": 15,
+        // Optional
+        "scheduleGroupId": 3,
+        // Optional
+        "noneScheduleMaxLevel": 112
       },
       "maxRogueChallengeScore": 3,
       "equipmentCount": 22,
@@ -226,7 +231,7 @@ class MihomoApiData(BaseModel):
 
 ### MiHoMo ParsedAPI Response
 
-MiHoMo ParsedAPI 返回值结构如下：
+MiHoMo ParsedAPI response data:
 
 ```json
 {
