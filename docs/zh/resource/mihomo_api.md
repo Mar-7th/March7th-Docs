@@ -522,8 +522,15 @@ class SkillInfo(BaseModel):
     desc: str
     icon: str
 
-class PropertyInfo(BaseModel):
-    type: str
+class SkillTreeInfo(BaseModel):
+    id: str
+    level: int
+    anchor: str
+    max_level: int
+    icon: str
+    parent: Optional[str] = None
+
+class AttributeInfo(BaseModel):
     field: str
     name: str
     icon: str
@@ -531,7 +538,8 @@ class PropertyInfo(BaseModel):
     display: str
     percent: bool
 
-class AttributeInfo(BaseModel):
+class PropertyInfo(BaseModel):
+    type: str
     field: str
     name: str
     icon: str
@@ -557,8 +565,8 @@ class RelicInfo(BaseModel):
 class RelicSetInfo(BaseModel):
     id: str
     name: str
-    num: int
     icon: str
+    num: int
     desc: str = ""
     properties: List[PropertyInfo] = []
 
@@ -613,6 +621,7 @@ class CharacterInfo(BaseModel):
     path: Optional[PathInfo] = None
     element: Optional[ElementInfo] = None
     skills: List[SkillInfo] = []
+    skill_trees: List[SkillTreeInfo] = []
     light_cone: Optional[LightConeInfo] = None
     relics: List[RelicInfo] = []
     relic_sets: List[RelicSetInfo] = []
