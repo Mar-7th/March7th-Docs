@@ -22,6 +22,8 @@ Current API host: https://api.mihomo.me
 
 Image resources repo: https://github.com/Mar-7th/StarRailRes
 
+Discord: [![discord](https://img.shields.io/badge/MiHoMo-blue?logo=discord&logoColor=white)](https://discord.gg/SxCGCGSjbX)
+
 ### MiHoMo OriginAPI
 
 MiHoMo OriginAPI returns origin player data.
@@ -99,11 +101,10 @@ MiHoMo OriginAPI response data:
     "IsDisplayAvatarList": true,
     "recordInfo": {
       // Equals {} when not unlock
+      // Not recommended to use, field name maybe wrong
       "challengeInfo": {
         "scheduleMaxLevel": 15,
-        // Optional
         "scheduleGroupId": 3,
-        // Optional
         "noneScheduleMaxLevel": 112
       },
       "maxRogueChallengeScore": 3,
@@ -169,9 +170,9 @@ Reference data model:
 
 ```python
 class SpaceChallengeData(BaseModel):
-    scheduleMaxLevel: int = 0
-    scheduleGroupId: int = 0
     noneScheduleMaxLevel: int = 0
+    scheduleGroupId: int = 0
+    scheduleMaxLevel: int = 0
 
 class SpaceData(BaseModel):
     challengeInfo: Optional[SpaceChallengeData] = None
@@ -245,8 +246,9 @@ MiHoMo ParsedAPI response data:
     "signature": "",
     "is_display": true,
     "space_info": {
-      "challenge_data": { "maze_group_id": 0, "maze_group_index": 6, "pre_maze_group_index": 0 },
-      "pass_area_progress": 3,
+      // Not recommended to use memory_data, field name maybe wrong
+      "memory_data": { "chaos_id": 0, "chaos_level": 6, "level": 0 },
+      "universe_level": 3,
       "light_cone_count": 22,
       "avatar_count": 14,
       "achievement_count": 119
@@ -544,14 +546,14 @@ class LightConeInfo(BaseModel):
     attributes: List[AttributeInfo] = []
     properties: List[PropertyInfo] = []
 
-class SpaceChallengeInfo(BaseModel):
-    maze_group_id: int = 0
-    maze_group_index: int = 0
-    pre_maze_group_index: int = 0
+class MemoryInfo(BaseModel):
+    level: int = 0
+    chaos_id: int = 0
+    chaos_level: int = 0
 
 class SpaceInfo(BaseModel):
-    challenge_data: Optional[SpaceChallengeInfo] = None
-    pass_area_progress: int = 0
+    memory_data: Optional[MemoryInfo] = None
+    universe_level: int = 0
     light_cone_count: int = 0
     avatar_count: int = 0
     achievement_count: int = 0
