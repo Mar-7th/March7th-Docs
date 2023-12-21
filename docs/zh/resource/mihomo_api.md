@@ -54,10 +54,11 @@ MiHoMo OriginAPI 返回原始玩家信息。
 
 **请求参数**
 
-| 字段名  | 数据类型 | 默认值 | 说明     |
-| ------- | -------- | ------ | -------- |
-| lang    | string   | cn     | 语言     |
-| version | string   | v2     | API 版本 |
+| 字段名          | 数据类型 | 默认值 | 说明           |
+| --------------- | -------- | ------ | -------------- |
+| lang            | string   | cn     | 语言           |
+| version         | string   | v2     | API 版本       |
+| is_force_update | bool     | false  | 不使用缓存数据 |
 
 支持语言列表：
 

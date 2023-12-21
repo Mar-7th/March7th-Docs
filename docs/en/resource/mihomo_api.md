@@ -54,10 +54,11 @@ Endpoint: `/sr_info_parsed/{uid}`
 
 **Query Prams**
 
-| Name    | Type   | Default | Explanation |
-| ------- | ------ | ------- | ----------- |
-| lang    | string | cn      | Language    |
-| version | string | v2      | API version |
+| Name            | Type   | Default | Explanation                     |
+| --------------- | ------ | ------- | ------------------------------- |
+| lang            | string | cn      | Language                        |
+| version         | string | v2      | API version                     |
+| is_force_update | bool   | false   | Refresh cached data immediately |
 
 Supported language list:
 
