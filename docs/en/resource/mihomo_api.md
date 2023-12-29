@@ -101,13 +101,12 @@ MiHoMo OriginAPI response data:
     "platform": "ANDROID",
     "IsDisplayAvatarList": true,
     "recordInfo": {
-      // Equals {} when not unlock
-      // Not recommended to use, field name maybe wrong
-      "challengeInfo": {
-        "scheduleMaxLevel": 15,
-        "scheduleGroupId": 3,
-        "noneScheduleMaxLevel": 112
-      },
+      // This field has been removed
+      // "challengeInfo": {
+      //   "scheduleMaxLevel": 15,
+      //   "scheduleGroupId": 3,
+      //   "noneScheduleMaxLevel": 112
+      // },
       "maxRogueChallengeScore": 3,
       "equipmentCount": 22,
       "avatarCount": 14,
@@ -247,8 +246,8 @@ MiHoMo ParsedAPI response data:
     "signature": "",
     "is_display": true,
     "space_info": {
-      // Not recommended to use memory_data, field name maybe wrong
-      "memory_data": { "chaos_id": 0, "chaos_level": 6, "level": 0 },
+      // This field has been removed in new version
+      // "memory_data": { "chaos_id": 0, "chaos_level": 6, "level": 0 },
       "universe_level": 3,
       "light_cone_count": 22,
       "avatar_count": 14,
@@ -547,13 +546,7 @@ class LightConeInfo(BaseModel):
     attributes: List[AttributeInfo] = []
     properties: List[PropertyInfo] = []
 
-class MemoryInfo(BaseModel):
-    level: int = 0
-    chaos_id: int = 0
-    chaos_level: int = 0
-
 class SpaceInfo(BaseModel):
-    memory_data: Optional[MemoryInfo] = None
     universe_level: int = 0
     light_cone_count: int = 0
     avatar_count: int = 0

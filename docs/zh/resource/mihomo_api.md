@@ -113,13 +113,12 @@ MiHoMo OriginAPI 返回值结构如下：
     "IsDisplayAvatarList": true,
     // 数据信息
     "recordInfo": {
-      // 忘却之庭进度
-      // 不推荐使用此字段，字段名称可能错误
-      "challengeInfo": {
-        "noneScheduleMaxLevel": 112,
-        "scheduleGroupId": 3,
-        "scheduleMaxLevel": 15
-      },
+      // 此字段已移除
+      // "challengeInfo": {
+      //   "scheduleMaxLevel": 15,
+      //   "scheduleGroupId": 3,
+      //   "noneScheduleMaxLevel": 112
+      // },
       // 通过模拟宇宙数量
       "maxRogueChallengeScore": 3,
       // 获得光锥数量
@@ -283,8 +282,8 @@ MiHoMo ParsedAPI 返回值结构如下：
     "signature": "",
     "is_display": true,
     "space_info": {
-      // 不推荐使用 memory_data，字段名称可能错误
-      "memory_data": { "level": 0, "chaos_id": 0, "chaos_level": 15 },
+      // 新版本中已移除该字段
+      // "memory_data": { "level": 0, "chaos_id": 0, "chaos_level": 15 },
       "universe_level": 3,
       "light_cone_count": 22,
       "avatar_count": 14,
