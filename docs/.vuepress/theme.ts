@@ -8,10 +8,10 @@ export default hopeTheme({
     name: "Mar-7th",
     url: "https://github.com/Mar-7th",
   },
-  iconAssets: "iconfont",
+  iconAssets: "iconify",
   logo: "/logo.png",
   repo: "Mar-7th/March7th-Docs",
-  docsBranch: 'master',
+  docsBranch: "master",
   docsDir: "docs",
 
   locales: {
@@ -45,15 +45,14 @@ export default hopeTheme({
         editLink: "Edit this page on GitHub",
       },
     },
-
   },
 
-//   encrypt: {
-//     config: {
-//       "/zh/demo/encrypt.html": ["1234"],
-//       "/en/demo/encrypt.html": ["1234"],
-//     },
-//   },
+  //   encrypt: {
+  //     config: {
+  //       "/zh/demo/encrypt.html": ["1234"],
+  //       "/en/demo/encrypt.html": ["1234"],
+  //     },
+  //   },
 
   plugins: {
     // comment: {
@@ -65,25 +64,15 @@ export default hopeTheme({
     mdEnhance: {
       align: true,
       attrs: true,
-      chart: true,
       codetabs: true,
+      component: true,
       demo: true,
-      echarts: true,
       figure: true,
-      flowchart: true,
-      gfm: true,
       imgLazyload: true,
       imgSize: true,
       include: true,
-      katex: true,
       mark: true,
-      mermaid: true,
-      playground: {
-        presets: ["ts", "vue"],
-      },
-      presentation: {
-        plugins: ["highlight", "math", "search", "notes", "zoom"],
-      },
+      spoiler: true,
       stylize: [
         {
           matcher: "Recommended",
@@ -100,8 +89,25 @@ export default hopeTheme({
       sub: true,
       sup: true,
       tabs: true,
+      tasklist: true,
       vPre: true,
-      vuePlayground: true,
+    },
+
+    search: {
+      locales: {
+        "/zh/": {
+          placeholder: "搜索",
+        },
+
+        "/en/": {
+          placeholder: "Search",
+        },
+      },
+    },
+
+    redirect: {
+      autoLocale: true,
+      switchLocale: "modal",
     },
 
     // uncomment these if you want a pwa

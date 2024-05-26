@@ -1,6 +1,6 @@
 ---
 title: File Structure
-icon: page
+icon: ph:bookmarks
 order: 1
 category:
   - Resource

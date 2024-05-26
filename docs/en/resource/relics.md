@@ -1,6 +1,6 @@
 ---
 title: Relic Index
-icon: discover
+icon: ph:crown
 order: 4
 category:
   - Resource

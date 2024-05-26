@@ -1,43 +1,33 @@
 ---
 home: true
-icon: home
+icon: ph:star
 title: Home
 heroImage: /logo.png
 heroText: March7th
-tagline: Honkai Star Rail bot based on Nonebot2.
+tagline: Honkai Star Rail tools.
 actions:
-  - text: Install 💡
-    link: /en/install/
+  - text: Resource 💡
+    link: /en/resource/
     type: primary
 
-  - text: Docs
-    link: /en/guide/
+  - text: GitHub
+    link: https://github.com/Mar-7th
 
 features:
-  - title: HelpMenu
-    icon: markdown
-    details: Draw StarRail help menu
-    link: #
+  - title: MiHoMo API
+    icon: ph:link-simple-horizontal
+    details: Public account data API
+    link: /en/resource/mihomo_api.html
 
-  - title: AccountBind
-    icon: link
-    details: Bind StarRail UID
-    link: #
+  - title: StarRailRes
+    icon: ph:images-square
+    details: Game data and image resources
+    link: /en/resource/
 
-  - title: AccountInfo
-    icon: profile
-    details: Draw info of account
-    link: #
-
-  - title: GameMemo
-    icon: diagram
-    details: Memo & month statistics
-    link: #
-
-  - title: GameWiki
-    icon: info
-    details: Wiki of characters, etc.
-    link: #
+  - title: StarRailScore
+    icon: ph:scales
+    details: Relic scoring criteria
+    link: https://github.com/Mar-7th/StarRailScore
 
 copyright: false
 footer: MIT Licensed | © 2023-present Mar-7th

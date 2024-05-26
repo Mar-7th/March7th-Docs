@@ -1,6 +1,6 @@
 ---
 title: MiHoMo API
-icon: page
+icon: ph:link-simple-horizontal
 order: 5
 category:
   - 资源

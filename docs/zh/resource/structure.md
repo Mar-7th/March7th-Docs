@@ -1,6 +1,6 @@
 ---
 title: 目录结构
-icon: page
+icon: ph:bookmarks
 order: 1
 category:
   - 资源

@@ -4,20 +4,8 @@ export const enSidebar = sidebar({
   "/en/": [
     "",
     {
-      text: "Install",
-      icon: "install",
-      prefix: "install/",
-      children: "structure",
-    },
-    {
-      text: "Guide",
-      icon: "read",
-      prefix: "guide/",
-      children: "structure",
-    },
-    {
       text: "Resource",
-      icon: "pic",
+      icon: "ph:package",
       prefix: "resource/",
       children: "structure",
     },

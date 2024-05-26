@@ -1,6 +1,6 @@
 ---
 title: Light Cone Index
-icon: engine
+icon: ph:sword
 order: 3
 category:
   - Resource

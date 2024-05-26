@@ -1,6 +1,6 @@
 ---
 title: Character Index
-icon: profile
+icon: ph:person
 order: 2
 category:
   - Resource

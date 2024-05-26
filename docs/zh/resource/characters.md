@@ -1,6 +1,6 @@
 ---
 title: 角色索引
-icon: profile
+icon: ph:person
 order: 2
 category:
   - 资源

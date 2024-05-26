@@ -1,6 +1,5 @@
 import { defineUserConfig } from "vuepress";
-import { redirectPlugin } from "vuepress-plugin-redirect";
-import { searchProPlugin } from "vuepress-plugin-search-pro";
+import { viteBundler } from "@vuepress/bundler-vite";
 import theme from "./theme.js";
 
 export default defineUserConfig({
@@ -21,24 +20,7 @@ export default defineUserConfig({
 
   theme,
 
-  plugins: [
-    redirectPlugin({
-      autoLocale: true,
-      switchLocale: "modal",
-    }),
-    searchProPlugin({
-      indexContent: true,
-      locales: {
-        "/zh/": {
-          placeholder: "搜索",
-        },
-
-        "/en/": {
-          placeholder: "Search",
-        },
-      },
-    }),
-  ],
+  bundler: viteBundler(),
 
   // Enable it with pwa
   // shouldPrefetch: false,

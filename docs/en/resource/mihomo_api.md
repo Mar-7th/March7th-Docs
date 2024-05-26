@@ -1,6 +1,6 @@
 ---
 title: MiHoMo API
-icon: page
+icon: ph:link-simple-horizontal
 order: 5
 category:
   - Resource
@@ -10,7 +10,7 @@ This page shows usage of MiHoMo API.
 
 <!-- more -->
 
-## MiHoMo API Call
+## API Information
 
 ### Reqest Method
 
@@ -24,9 +24,9 @@ Image resources repo: https://github.com/Mar-7th/StarRailRes
 
 Discord: [![discord](https://img.shields.io/badge/MiHoMo-blue?logo=discord&logoColor=white)](https://discord.gg/SxCGCGSjbX)
 
-### MiHoMo OriginAPI
+### Raw Data API
 
-MiHoMo OriginAPI returns origin player data.
+MiHoMo Raw Data API returns original player public data.
 
 End point: `/sr_info/{uid}`
 
@@ -38,11 +38,11 @@ End point: `/sr_info/{uid}`
 
 **Response**
 
-See [MiHoMo OriginAPI Response](#mihomo-originapi-response)
+See [Raw Data API Response](#raw-data-api-response)
 
-### MiHoMo ParsedAPI
+### Parsed Data API
 
-MiHoMo OriginAPI returns parsed player data.
+MiHoMo Parsed Data API returns parsed player data.
 
 Endpoint: `/sr_info_parsed/{uid}`
 
@@ -80,13 +80,13 @@ Supported language list:
 
 **Response**
 
-See [MiHoMo ParsedAPI Response](#mihomo-parsedapi-response)
+See [Parsed Data API Response](#parsed-data-api-response)
 
-## MiHoMo API Data Model
+## Data Model
 
-### MiHoMo OriginAPI Response
+### Raw Data API Response
 
-MiHoMo OriginAPI response data:
+MiHoMo Raw Data API response data example:
 
 ```json
 {
@@ -230,9 +230,9 @@ class MihomoApiData(BaseModel):
     detailInfo: Optional[PlayerData] = None
 ```
 
-### MiHoMo ParsedAPI Response
+### Parsed Data API Response
 
-MiHoMo ParsedAPI response data:
+MiHoMo Parsed Data API response data example:
 
 ```json
 {

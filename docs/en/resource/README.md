@@ -1,6 +1,6 @@
 ---
 title: Resource
-icon: pic
+icon: ph:package
 index: false
 category:
   - Resource

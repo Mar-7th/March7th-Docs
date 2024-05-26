@@ -1,6 +1,6 @@
 ---
 title: 资源
-icon: pic
+icon: ph:package
 index: false
 category:
   - 资源

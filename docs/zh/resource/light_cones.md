@@ -1,6 +1,6 @@
 ---
 title: 光锥索引
-icon: engine
+icon: ph:sword
 order: 3
 category:
   - 资源

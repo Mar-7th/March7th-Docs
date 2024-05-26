@@ -1,6 +1,6 @@
 ---
 title: 遗器索引
-icon: discover
+icon: ph:crown
 order: 4
 category:
   - 资源
