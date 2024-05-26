@@ -1,4 +1,4 @@
-import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as s,o as a,e as t}from"./app-BQ5_63dH.js";const p={},e=t(`<p>本页面介绍角色相关索引文件的结构。</p><h2 id="角色索引文件" tabindex="-1"><a class="header-anchor" href="#角色索引文件"><span>角色索引文件</span></a></h2><p>在对应语言文件夹（<code>index_new/[lang]</code> <code>index_min/[lang]</code>）下有以下几个和角色相关的索引文件：</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>characters.json                 # 角色基本信息，索引为角色id
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as s,o as a,e as t}from"./app-BYQgWMYB.js";const p={},e=t(`<p>本页面介绍角色相关索引文件的结构。</p><h2 id="角色索引文件" tabindex="-1"><a class="header-anchor" href="#角色索引文件"><span>角色索引文件</span></a></h2><p>在对应语言文件夹（<code>index_new/[lang]</code> <code>index_min/[lang]</code>）下有以下几个和角色相关的索引文件：</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>characters.json                 # 角色基本信息，索引为角色id
 character_ranks.json            # 角色星魂，索引为星魂id
 character_skills.json           # 角色技能，索引为技能id
 character_skill_trees.json      # 角色行迹，索引为行迹id
