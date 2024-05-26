@@ -1,12 +1,11 @@
 ---
-title: Resource
-icon: ph:package
-index: false
+title: Game Resource
+icon: ph:books
 category:
   - Resource
 ---
 
-## Content
+## Game Resource
 
 Repo: [Mar-7th/StarRailRes](https://github.com/Mar-7th/StarRailRes)
 
@@ -14,4 +13,3 @@ Repo: [Mar-7th/StarRailRes](https://github.com/Mar-7th/StarRailRes)
 - [Character Index](characters.md)
 - [Light Cone Index](light_cones.md)
 - [Relic Index](relics.md)
-- [MihomoAPI](mihomo_api.md)

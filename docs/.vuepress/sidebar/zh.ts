@@ -9,5 +9,11 @@ export const zhSidebar = sidebar({
       prefix: "resource/",
       children: "structure",
     },
+    {
+      text: "API",
+      icon: "ph:link-simple-horizontal",
+      prefix: "api/",
+      children: "structure",
+    },
   ],
 });
