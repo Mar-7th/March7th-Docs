@@ -26,6 +26,10 @@ _解析数据 API_ 返回解析后的带有文本和图片的玩家数据。你�
 - [原始数据 API](raw.md)
 - [解析数据 API](parsed.md)
 
+其他 API:
+
+- [用户动态 API](activity.md)
+
 ### 问题反馈
 
 如在使用中遇到问题，请加入 Discord 讨论：[![discord](https://img.shields.io/badge/MiHoMo-blue?logo=discord&logoColor=white)](https://discord.gg/SxCGCGSjbX)

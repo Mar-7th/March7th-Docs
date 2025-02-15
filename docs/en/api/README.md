@@ -26,6 +26,10 @@ _Parsed Data API_ returns parsed player data with text description and images. Y
 - [Raw Data API](raw.md)
 - [Parsed Data API](parsed.md)
 
+Other APIs:
+
+- [User Activity API](activity.md)
+
 ### Feedback
 
 For API questions and feedback, join Discord: [![discord](https://img.shields.io/badge/MiHoMo-blue?logo=discord&logoColor=white)](https://discord.gg/SxCGCGSjbX)
