@@ -6,6 +6,8 @@ category:
   - Resource
 ---
 
+<!-- markdownlint-disable MD036 -->
+
 This page shows usage of MiHoMo Raw Data API.
 
 <!-- more -->
@@ -128,6 +130,8 @@ Reference Python data model:
 
 # uncomment if you are using msgspec
 # from msgspec import Struct as Model
+
+from typing import List, Optional
 
 class SpaceChallengeData(Model):
     scheduleGroupId: Optional[int] = None

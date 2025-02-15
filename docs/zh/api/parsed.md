@@ -6,6 +6,8 @@ category:
   - Resource
 ---
 
+<!-- markdownlint-disable MD036 -->
+
 本页面介绍 MiHoMo 解析数据 API 的使用方式。
 
 <!-- more -->
@@ -22,17 +24,18 @@ category:
 
 **请求参数**
 
-| 字段名          | 数据类型 | 默认值 | 说明           |
-| --------------- | -------- | ------ | -------------- |
-| lang            | string   | cn     | 语言           |
-| version         | string   | v2     | API 版本       |
-| is_force_update | bool     | false  | 不使用缓存数据 |
+| 字段名          | 数据类型 | 默认值 | 说明           | 别名    |
+| --------------- | -------- | ------ | -------------- | ------- |
+| language        | string   | cn     | 语言           | l, lang |
+| version         | string   | v2     | API 版本       | v, ver  |
+| is_force_update | bool     | false  | 不使用缓存数据 |         |
 
 支持语言列表：
 
 | 代码 | 语言             |
 | ---- | ---------------- |
 | cn   | 简体中文         |
+| chs  | 简体中文         |
 | cht  | 繁體中文         |
 | de   | Deutsch          |
 | en   | English          |
@@ -49,7 +52,7 @@ category:
 **请求示例**
 
 ```http
-GET /sr_info_parsed/100000999?lang=cn HTTP/1.1
+GET /sr_info_parsed/100000999?l=cn HTTP/1.1
 Host: api.mihomo.me
 User-Agent: Your-App-Name
 ```
@@ -361,6 +364,8 @@ User-Agent: Your-App-Name
 
 # 使用 msgspec 时取消注释
 # from msgspec import Struct as Model
+
+from typing import List, Optional
 
 class LevelInfo(Model):
     id: str

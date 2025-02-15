@@ -6,6 +6,8 @@ category:
   - Resource
 ---
 
+<!-- markdownlint-disable MD036 -->
+
 本页面介绍 MiHoMo 原始数据 API 的使用方式。
 
 <!-- more -->
@@ -164,6 +166,8 @@ User-Agent: Your-App-Name
 
 # 使用 msgspec 时取消注释
 # from msgspec import Struct as Model
+
+from typing import List, Optional
 
 class SpaceChallengeData(Model):
     scheduleGroupId: Optional[int] = None

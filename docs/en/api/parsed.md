@@ -6,6 +6,8 @@ category:
   - Resource
 ---
 
+<!-- markdownlint-disable MD036 -->
+
 This page shows usage of MiHoMo Parsed Data API.
 
 <!-- more -->
@@ -24,17 +26,18 @@ Endpoint: `/sr_info_parsed/{uid}`
 
 **Query Prams**
 
-| Name            | Type   | Default | Explanation                     |
-| --------------- | ------ | ------- | ------------------------------- |
-| lang            | string | cn      | Language                        |
-| version         | string | v2      | API version                     |
-| is_force_update | bool   | false   | Refresh cached data immediately |
+| Name            | Type   | Default | Explanation                     | Aliases |
+| --------------- | ------ | ------- | ------------------------------- | ------- |
+| language        | string | cn      | Language                        | l, lang |
+| version         | string | v2      | API version                     | v, ver  |
+| is_force_update | bool   | false   | Refresh cached data immediately |         |
 
 Supported language list:
 
 | Code | Language         |
 | ---- | ---------------- |
 | cn   | 简体中文         |
+| chs  | 简体中文         |
 | cht  | 繁體中文         |
 | de   | Deutsch          |
 | en   | English          |
@@ -51,7 +54,7 @@ Supported language list:
 **Example**
 
 ```http
-GET /sr_info_parsed/100000999?lang=en HTTP/1.1
+GET /sr_info_parsed/100000999?l=en HTTP/1.1
 Host: api.mihomo.me
 User-Agent: Your-App-Name
 ```
@@ -351,6 +354,8 @@ Reference data model:
 
 # uncomment if you are using msgspec
 # from msgspec import Struct as Model
+
+from typing import List, Optional
 
 class LevelInfo(Model):
     id: str
