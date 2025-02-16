@@ -22,7 +22,7 @@ features:
   - title: MiHoMo API
     icon: ph:link-simple-horizontal
     details: 账号公开数据接口
-    link: /zh/resource/mihomo_api.html
+    link: /zh/api/
 
   - title: StarRailRes
     icon: ph:images-square

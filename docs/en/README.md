@@ -17,7 +17,7 @@ features:
   - title: MiHoMo API
     icon: ph:link-simple-horizontal
     details: Public account data API
-    link: /en/resource/mihomo_api.html
+    link: /en/api/
 
   - title: StarRailRes
     icon: ph:images-square
