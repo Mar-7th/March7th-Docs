@@ -1,4 +1,4 @@
-import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as i,a as t,o as a}from"./app-Dyb5COld.js";const s={};function r(l,e){return a(),i("div",null,e[0]||(e[0]=[t(`<p>本页面介绍资源仓库 <a href="https://github.com/Mar-7th/StarRailRes" target="_blank" rel="noopener noreferrer">Mar-7th/StarRailRes</a> 的目录结构。</p><h2 id="项目结构" tabindex="-1"><a class="header-anchor" href="#项目结构"><span>项目结构</span></a></h2><p>项目文件结构如下：</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>StarRailRes
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as i,a as t,o as a}from"./app-ZgGEBg5W.js";const s={};function r(l,e){return a(),i("div",null,e[0]||(e[0]=[t(`<p>本页面介绍资源仓库 <a href="https://github.com/Mar-7th/StarRailRes" target="_blank" rel="noopener noreferrer">Mar-7th/StarRailRes</a> 的目录结构。</p><h2 id="项目结构" tabindex="-1"><a class="header-anchor" href="#项目结构"><span>项目结构</span></a></h2><p>项目文件结构如下：</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>StarRailRes
 ├─ icon         # 图标素材目录
 ├─ image        # 图片素材目录
 ├─ guide        # 教程图片目录
