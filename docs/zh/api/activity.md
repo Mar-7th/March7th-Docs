@@ -66,8 +66,7 @@ User-Agent: Your-App-Name
   "info": [
     {
       "type": "pure_fiction",
-      "text": "完成了「末日幻影•煽动螟蝗·难度04」",
-      "timestamp": 1737443137,
+      "text": "27天前完成了「末日幻影•煽动螟蝗·难度04」",
       "content": {
         "id": "30064",
         "param": null,
@@ -76,8 +75,7 @@ User-Agent: Your-App-Name
     },
     {
       "type": "event",
-      "text": "完成了活动「地宫迷踪」",
-      "timestamp": 1737751248,
+      "text": "23天前完成了活动「地宫迷踪」",
       "content": {
         "id": "50026",
         "param": null,
@@ -86,10 +84,18 @@ User-Agent: Your-App-Name
     },
     {
       "type": "apocalyptic_shadow",
-      "text": "完成了「虚构叙事•陈腔滥调其四」",
-      "timestamp": 1738569859,
+      "text": "14天前完成了「虚构叙事•陈腔滥调其四」",
       "content": {
         "id": "20124",
+        "param": null,
+        "icon": "icon/sign/DailyQuestChallengeStoryIcon.png"
+      }
+    },
+    {
+      "type": "forgotten_hall",
+      "text": "今天完成了「忘却之庭•创世纷争其十一」",
+      "content": {
+        "id": "4011",
         "param": null,
         "icon": "icon/sign/DailyQuestChallengeStoryIcon.png"
       }
@@ -154,10 +160,6 @@ class ActivityInfo(Model):
     text: str
     """
     动态描述
-    """
-    timestamp: int
-    """
-    动态时间戳
     """
     content: ActivityContent
     """

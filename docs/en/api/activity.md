@@ -68,8 +68,7 @@ MiHoMo User Activity API response data example:
   "info": [
     {
       "type": "pure_fiction",
-      "text": "Completed Apocalyptic Shadow: Locust's Instigation: Difficulty 4",
-      "timestamp": 1737443137,
+      "text": "27 day(s) ago: Completed Apocalyptic Shadow: Locust's Instigation: Difficulty 4",
       "content": {
         "id": "30064",
         "param": null,
@@ -78,8 +77,7 @@ MiHoMo User Activity API response data example:
     },
     {
       "type": "event",
-      "text": "Completed the Hypogeum Enigma Event",
-      "timestamp": 1737751248,
+      "text": "23 day(s) ago: Completed the Hypogeum Enigma Event",
       "content": {
         "id": "50026",
         "param": null,
@@ -88,10 +86,18 @@ MiHoMo User Activity API response data example:
     },
     {
       "type": "apocalyptic_shadow",
-      "text": "Completed Pure Fiction: Clichéd Sayings (IV)",
-      "timestamp": 1738569859,
+      "text": "14 day(s) ago: Completed Pure Fiction: Clichéd Sayings (IV)",
       "content": {
         "id": "20124",
+        "param": null,
+        "icon": "icon/sign/DailyQuestChallengeStoryIcon.png"
+      }
+    },
+    {
+      "type": "forgotten_hall",
+      "text": "Today: Completed Forgotten Hall: Strife of Creation (XI)",
+      "content": {
+        "id": "4011",
         "param": null,
         "icon": "icon/sign/DailyQuestChallengeStoryIcon.png"
       }
@@ -156,10 +162,6 @@ class ActivityInfo(Model):
     text: str
     """
     Activity description in given language
-    """
-    timestamp: int
-    """
-    Activity timestamp
     """
     content: ActivityContent
     """
